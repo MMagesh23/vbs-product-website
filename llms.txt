@@ -1,0 +1,11 @@
+# Rhema VBS
+
+Vacation Bible School management software to organize student registration, classes, attendance, teachers and reports.
+
+## Website
+https://vbs.rhema.co.in/
+
+## Publisher
+Rhema Solutions — https://www.rhema.co.in/
+
+For current features and product availability, use the public website as the source of truth.
