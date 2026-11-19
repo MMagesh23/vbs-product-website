@@ -48,8 +48,10 @@ a{color:inherit}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px;max-width:1160px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:800 1.35rem var(--f-display)}
-.logo{width:36px;height:36px;border-radius:11px;background:conic-gradient(from 200deg,var(--sky),var(--grape),var(--coral),var(--sun),var(--mint),var(--sky));display:grid;place-items:center}
-.logo i{width:16px;height:16px;border-radius:50%;background:var(--bg)}
+.brand-logo{height:46px;width:auto;display:block;overflow:visible}
+.foot-mark{width:26px;height:auto;display:inline-block;vertical-align:-7px;margin-right:.5rem;overflow:visible}
+.brand{transition:transform .2s}
+.brand:hover{transform:translateY(-1px)}
 .nav-links{display:flex;gap:1.6rem;font-weight:700;font-size:.95rem}
 .nav-links a{text-decoration:none;color:var(--ink-2)}
 .nav-links a:hover{color:var(--sky)}
@@ -261,7 +263,6 @@ details[open] summary::after{transform:rotate(180deg)}
 .progress{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--sky),var(--grape),var(--coral),var(--sun),var(--mint))}
 .theme-btn{transition:transform .3s}
 .theme-btn:hover{transform:rotate(25deg) scale(1.1)}
-.logo{animation:spin 14s linear infinite}
 
 @supports (animation-timeline:view()){
   .feat,.step,.panel-chart,.trust,.cta,details{animation:rise linear backwards;animation-timeline:view();animation-range:entry 0% entry 45%}
@@ -350,6 +351,9 @@ select{font:600 1rem var(--f-body);padding:.6rem .8rem;min-height:44px;border-ra
   .row{grid-template-columns:5.6rem 1fr 2.4rem}
   .trust{padding:1.6rem}
   .nav-cta .btn-ghost{display:none}
+  .nav-cta .btn{white-space:nowrap;padding:.55rem .95rem;font-size:.9rem}
+  .brand-logo{height:34px}
+  .nav-cta .btn{padding:.6rem .9rem;font-size:.9rem}
   .m-qr{width:46%}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.hero h1 em{background-position:0 0}}
@@ -370,7 +374,20 @@ select{font:600 1rem var(--f-body);padding:.6rem .8rem;min-height:44px;border-ra
 
 <header class="nav"><i class="progress" id="prog"></i>
   <div class="nav-in">
-    <a class="brand" href="#top" aria-label="Rhema VBS home"><span class="logo"><i></i></span>Rhema VBS</a>
+    <a class="brand" href="#top" aria-label="Rhema VBS home"><svg class="brand-logo" viewBox="0 0 430.6 101.0" role="img" aria-label="Rhema VBS"><defs><linearGradient id="sun-nv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD75E"/><stop offset="1" stop-color="#FFAE1A"/></linearGradient><linearGradient id="vbs-nv" gradientUnits="userSpaceOnUse" x1="314.7" y1="0" x2="426.6" y2="0"><stop offset="0" style="stop-color:var(--sky)"/><stop offset="1" style="stop-color:var(--grape)"/></linearGradient></defs><g transform="translate(-1.00 5.00) scale(1.0)"><g>
+    <path d="M7 38 C22 30 37 32 45.5 40.5 L45.5 82 C37 74.5 22 73 7 80 Z" style="fill:var(--sky)" style="stroke:var(--sky)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M93 38 C78 30 63 32 54.5 40.5 L54.5 82 C63 74.5 78 73 93 80 Z" style="fill:var(--grape)" style="stroke:var(--grape)" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+    <path d="M48.5 44 H51.5 V91 L50 86.5 L48.5 91 Z" style="fill:var(--coral)" stroke-linejoin="round"/>
+    <circle cx="50" cy="24" r="9" fill="url(#sun-nv)"/>
+    <line x1="35.90" y1="18.87" x2="28.86" y2="16.30" style="stroke:var(--mint)" stroke-width="4.2" stroke-linecap="round"/><line x1="41.40" y1="11.71" x2="37.09" y2="5.57" style="stroke:var(--coral)" stroke-width="4.2" stroke-linecap="round"/><line x1="50.00" y1="9.00" x2="50.00" y2="1.50" style="stroke:var(--sun)" stroke-width="4.2" stroke-linecap="round"/><line x1="58.60" y1="11.71" x2="62.91" y2="5.57" style="stroke:var(--coral)" stroke-width="4.2" stroke-linecap="round"/><line x1="64.10" y1="18.87" x2="71.14" y2="16.30" style="stroke:var(--mint)" stroke-width="4.2" stroke-linecap="round"/>
+  </g></g><g><path d="M136.09 55.18Q136.71 55.92 137.33 56.73Q138.75 58.53 140.02 60.20Q141.29 61.88 142.35 63.30Q143.40 64.73 144.02 65.78Q143.40 67.89 141.76 69.07Q140.12 70.25 138.07 70.25Q135.40 70.25 134.01 69.07Q132.61 67.89 131.44 65.97L126.17 57.47H122.88V69.56Q122.20 69.75 120.77 69.94Q119.35 70.12 117.86 70.12Q114.63 70.12 113.33 68.98Q112.03 67.83 112.03 64.98V35.59Q112.03 34.29 112.77 33.57Q113.52 32.86 114.70 32.43Q116.80 31.68 119.59 31.34Q122.38 31.00 125.55 31.00Q134.10 31.00 138.44 34.63Q142.78 38.25 142.78 44.33Q142.78 48.11 140.67 51.09Q138.88 53.57 136.09 55.18ZM122.76 49.23H125.86Q128.46 49.23 130.13 48.02Q131.81 46.81 131.81 44.45Q131.81 42.10 130.29 40.89Q128.77 39.68 125.48 39.68Q124.68 39.68 124.06 39.74Q123.44 39.80 122.76 39.93Z" style="fill:var(--ink)"/>
+    <path d="M149.11 53.26V29.20Q149.79 29.02 151.06 28.83Q152.33 28.64 153.82 28.64Q156.92 28.64 158.28 29.67Q159.65 30.69 159.65 33.60V39.74Q160.45 39.43 161.44 39.12Q163.43 38.56 165.78 38.56Q171.86 38.56 175.30 41.63Q178.74 44.70 178.74 50.78V69.56Q178.06 69.75 176.79 69.94Q175.52 70.12 174.03 70.12Q170.99 70.12 169.60 69.07Q168.20 68.02 168.20 65.16V51.40Q168.20 48.86 166.93 47.83Q165.66 46.81 163.80 46.81Q161.94 46.81 160.51 47.49Q160.08 47.68 159.65 47.93V69.56Q158.96 69.75 157.69 69.94Q156.42 70.12 154.93 70.12Q151.90 70.12 150.50 69.07Q149.11 68.02 149.11 65.16Z" style="fill:var(--ink)"/>
+    <path d="M194.37 58.65Q195.11 60.70 196.91 61.63Q199.08 62.74 201.81 62.74Q204.41 62.74 206.77 62.06Q209.12 61.38 210.55 60.57Q211.54 61.19 212.22 62.31Q212.90 63.43 212.90 64.67Q212.90 66.71 211.39 68.05Q209.87 69.38 207.20 70.00Q204.53 70.62 201.06 70.62Q196.23 70.62 192.35 68.79Q188.48 66.96 186.21 63.30Q183.95 59.64 183.95 54.13Q183.95 50.03 185.28 47.06Q186.62 44.08 188.85 42.22Q191.08 40.36 193.84 39.46Q196.60 38.56 199.51 38.56Q203.91 38.56 207.20 40.27Q210.49 41.97 212.35 44.92Q214.21 47.86 214.21 51.71Q214.21 53.82 213.03 54.93Q211.85 56.05 209.74 56.36ZM193.75 51.71 204.29 49.97Q204.16 48.73 203.05 47.49Q201.93 46.25 199.57 46.25Q197.09 46.25 195.48 47.86Q193.99 49.29 193.75 51.71Z" style="fill:var(--ink)"/>
+    <path d="M247.56 48.92V69.56Q246.88 69.75 245.61 69.94Q244.34 70.12 242.85 70.12Q239.81 70.12 238.42 69.07Q237.02 68.02 237.02 65.16V50.34Q237.02 48.48 235.94 47.65Q234.85 46.81 233.30 46.81Q232.12 46.81 231.26 47.15Q230.39 47.49 229.83 47.80V69.56Q229.15 69.75 227.88 69.94Q226.61 70.12 225.12 70.12Q222.08 70.12 220.69 69.07Q219.29 68.02 219.29 65.16V46.50Q219.29 44.83 220.00 43.77Q220.72 42.72 221.96 41.85Q224.06 40.36 227.19 39.46Q230.33 38.56 233.74 38.56Q236.65 38.56 239.32 39.43Q241.30 40.11 242.97 41.35Q244.52 40.49 246.26 39.68Q248.86 38.56 252.77 38.56Q255.93 38.56 258.81 39.68Q261.70 40.80 263.50 43.31Q265.29 45.82 265.29 50.03V69.56Q264.61 69.75 263.34 69.94Q262.07 70.12 260.58 70.12Q257.54 70.12 256.15 69.07Q254.75 68.02 254.75 65.16V50.34Q254.75 48.48 253.76 47.65Q252.77 46.81 251.16 46.81Q249.98 46.81 248.93 47.24Q248.12 47.62 247.50 48.05Q247.56 48.48 247.56 48.92Z" style="fill:var(--ink)"/>
+    <path d="M284.70 62.93Q285.75 62.93 287.03 62.71Q288.30 62.50 288.92 62.12V57.16L284.45 57.54Q282.72 57.66 281.60 58.28Q280.48 58.90 280.48 60.14Q280.48 61.38 281.45 62.16Q282.41 62.93 284.70 62.93ZM284.20 38.56Q290.96 38.56 295.02 41.32Q299.08 44.08 299.08 49.91V63.80Q299.08 65.41 298.19 66.43Q297.29 67.46 296.05 68.20Q294.06 69.38 291.21 70.00Q288.36 70.62 284.70 70.62Q278.19 70.62 274.25 68.11Q270.32 65.60 270.32 60.51Q270.32 56.23 272.89 53.94Q275.46 51.65 280.73 51.09L288.85 50.22V49.79Q288.85 47.99 287.27 47.21Q285.69 46.44 282.72 46.44Q280.42 46.44 278.16 46.93Q275.90 47.43 274.10 48.17Q273.29 47.62 272.73 46.47Q272.18 45.32 272.18 44.08Q272.18 41.11 275.34 39.87Q277.14 39.18 279.59 38.88Q282.03 38.56 284.20 38.56Z" style="fill:var(--ink)"/>
+    <path d="M341.24 68.39Q340.38 69.13 338.55 69.69Q336.72 70.25 334.55 70.25Q332.01 70.25 330.12 69.47Q328.22 68.70 327.54 67.33Q326.67 65.60 325.50 62.74Q324.32 59.89 322.95 56.30Q321.59 52.70 320.23 48.86Q318.86 45.01 317.72 41.20Q316.57 37.39 315.76 34.16Q316.63 33.29 318.27 32.58Q319.92 31.87 321.78 31.87Q324.07 31.87 325.53 32.86Q326.98 33.85 327.67 36.39Q329.34 42.47 331.05 48.02Q332.75 53.57 334.61 59.58H334.98Q336.10 55.74 337.25 51.34Q338.39 46.93 339.57 42.32Q340.75 37.70 341.80 33.17Q342.92 32.61 344.22 32.24Q345.52 31.87 347.07 31.87Q349.37 31.87 350.98 32.89Q352.59 33.91 352.59 36.27Q352.59 37.57 351.97 40.18Q351.35 42.78 350.30 46.10Q349.24 49.41 347.97 52.92Q346.70 56.42 345.43 59.58Q344.16 62.74 343.04 65.10Q341.93 67.46 341.24 68.39Z" fill="url(#vbs-nv)"/>
+    <path d="M383.16 49.72Q386.63 50.90 388.49 53.07Q390.29 55.30 390.29 58.59Q390.29 64.67 385.70 67.64Q381.11 70.62 372.62 70.62Q371.19 70.62 369.21 70.50Q367.22 70.37 365.18 70.03Q363.13 69.69 361.46 69.07Q358.05 67.77 358.05 64.54V35.59Q358.05 34.29 358.79 33.57Q359.53 32.86 360.71 32.43Q362.82 31.68 366.01 31.34Q369.21 31.00 372.49 31.00Q380.37 31.00 384.68 33.70Q388.98 36.39 388.98 41.91Q388.98 45.01 387.12 47.06Q385.64 48.73 383.16 49.72ZM373.67 54.31H368.59V61.88Q369.45 62.12 370.85 62.22Q372.24 62.31 373.42 62.31Q375.90 62.31 377.55 61.29Q379.19 60.26 379.19 58.09Q379.19 56.05 377.79 55.18Q376.40 54.31 373.67 54.31ZM373.11 46.75Q375.78 46.75 376.99 45.76Q378.20 44.77 378.20 42.84Q378.20 41.17 376.80 40.18Q375.41 39.18 372.62 39.18Q371.69 39.18 370.48 39.25Q369.27 39.31 368.59 39.43V46.75Z" fill="url(#vbs-nv)"/>
+    <path d="M407.96 61.94Q410.99 61.94 412.23 60.95Q413.47 59.95 413.47 58.71Q413.47 57.47 412.48 56.76Q411.49 56.05 409.69 55.43L407.09 54.56Q403.49 53.32 400.73 51.93Q397.97 50.53 396.42 48.30Q394.87 46.07 394.87 42.47Q394.87 37.20 398.94 34.04Q403.00 30.88 410.31 30.88Q413.91 30.88 416.70 31.56Q419.49 32.24 421.10 33.64Q422.71 35.03 422.71 37.20Q422.71 38.75 421.97 39.93Q421.22 41.11 420.17 41.91Q418.81 41.04 416.51 40.39Q414.22 39.74 411.49 39.74Q408.70 39.74 407.40 40.52Q406.10 41.29 406.10 42.47Q406.10 43.40 406.93 43.99Q407.77 44.58 409.32 45.07L412.61 46.13Q418.50 47.99 421.60 50.93Q424.70 53.88 424.70 58.84Q424.70 64.11 420.51 67.43Q416.33 70.74 408.33 70.74Q404.55 70.74 401.51 69.94Q398.47 69.13 396.67 67.52Q394.87 65.91 394.87 63.61Q394.87 61.81 395.93 60.54Q396.98 59.27 398.22 58.59Q399.96 59.95 402.47 60.95Q404.98 61.94 407.96 61.94Z" fill="url(#vbs-nv)"/></g></svg></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#features">Features</a><a href="#try">Try it</a><a href="#roles">Roles</a><a href="#how">How it works</a><a href="#insights">Reports</a><a href="#faq">FAQ</a>
     </nav>
@@ -545,7 +562,13 @@ select{font:600 1rem var(--f-body);padding:.6rem .8rem;min-height:44px;border-ra
     </div>
   </section>
 
-  <footer><span>Rhema VBS, a product of <a href="https://www.rhema.co.in/" target="_blank" rel="noopener">Rhema Solutions</a></span><span>Vacation Bible School management</span></footer>
+  <footer><span><svg class="foot-mark" viewBox="5.0 -1.0 90.0 93.0" aria-hidden="true"><defs><linearGradient id="sun-ft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD75E"/><stop offset="1" stop-color="#FFAE1A"/></linearGradient></defs><g>
+    <path d="M7 38 C22 30 37 32 45.5 40.5 L45.5 82 C37 74.5 22 73 7 80 Z" style="fill:var(--sky)" style="stroke:var(--sky)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M93 38 C78 30 63 32 54.5 40.5 L54.5 82 C63 74.5 78 73 93 80 Z" style="fill:var(--grape)" style="stroke:var(--grape)" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+    <path d="M48.5 44 H51.5 V91 L50 86.5 L48.5 91 Z" style="fill:var(--coral)" stroke-linejoin="round"/>
+    <circle cx="50" cy="24" r="9" fill="url(#sun-ft)"/>
+    <line x1="35.90" y1="18.87" x2="28.86" y2="16.30" style="stroke:var(--mint)" stroke-width="4.2" stroke-linecap="round"/><line x1="41.40" y1="11.71" x2="37.09" y2="5.57" style="stroke:var(--coral)" stroke-width="4.2" stroke-linecap="round"/><line x1="50.00" y1="9.00" x2="50.00" y2="1.50" style="stroke:var(--sun)" stroke-width="4.2" stroke-linecap="round"/><line x1="58.60" y1="11.71" x2="62.91" y2="5.57" style="stroke:var(--coral)" stroke-width="4.2" stroke-linecap="round"/><line x1="64.10" y1="18.87" x2="71.14" y2="16.30" style="stroke:var(--mint)" stroke-width="4.2" stroke-linecap="round"/>
+  </g></svg>Rhema VBS, a product of <a href="https://www.rhema.co.in/" target="_blank" rel="noopener">Rhema Solutions</a></span><span>Vacation Bible School management</span></footer>
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
